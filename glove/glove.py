@@ -68,7 +68,15 @@ class Glove(object):
         num_examples = 0
         for key in self.cooccurence:
             for subkey in self.cooccurence[key]:
-                batch.append((key, subkey, self.cooccurence[key][subkey], self.cooccurence_implicit[key][subkey]))
+                flag = false
+                if key in cooccurence_implicit:
+                    if subkey in cooccurence_implicit[key]:
+                        flag = True
+                if flag:
+                    val = self.cooccurence_implicit[key][subkey]
+                else:
+                    val = 1
+                batch.append((key, subkey, self.cooccurence[key][subkey], val))
                 batch_length += 1
                 if batch_length >= batch_size:
                     jobs.put(
