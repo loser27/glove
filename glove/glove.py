@@ -75,7 +75,7 @@ class Glove(object):
                         (
                             np.array([k for k,s,c,m in batch], dtype=np.int32),
                             np.array([s for k,s,c,m in batch], dtype=np.int32),
-                            np.array([c for k,s,c,m in batch], dtype=np.float64)
+                            np.array([c for k,s,c,m in batch], dtype=np.float64),
                             np.array([m for k,s,c,m in batch], dtype=np.float64)
                             
                         )
@@ -88,7 +88,7 @@ class Glove(object):
                 (
                     np.array([k for k,s,c,m in batch], dtype=np.int32),
                     np.array([s for k,s,c,m in batch], dtype=np.int32),
-                    np.array([c for k,s,c,m in batch], dtype=np.float64)
+                    np.array([c for k,s,c,m in batch], dtype=np.float64),
                     np.array([m for k,s,c,m in batch], dtype=np.float64)
                 )
             )
