@@ -19,7 +19,7 @@ cdef void train_glove_thread(
         REAL_t * bias,       REAL_t * ContextB,
         REAL_t * gradsqb, REAL_t * gradsqContextB,
         REAL_t * error,
-        INT_t * job_key, INT_t * job_subkey, REAL_t * job_target,REAL_t * job_target_implicit
+        INT_t * job_key, INT_t * job_subkey, REAL_t * job_target,REAL_t * job_target_implicit,
         int vector_size, int batch_size, REAL_t x_max, REAL_t alpha, REAL_t step_size) nogil:
 
     cdef long long a, b, l1, l2
