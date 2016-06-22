@@ -68,7 +68,7 @@ class Glove(object):
         num_examples = 0
         for key in self.cooccurence:
             for subkey in self.cooccurence[key]:
-                flag = false
+                flag = False
                 if key in cooccurence_implicit:
                     if subkey in cooccurence_implicit[key]:
                         flag = True
