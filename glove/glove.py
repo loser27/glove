@@ -48,6 +48,7 @@ class Glove(object):
                 if job is None:  # data finished, exit
                     break
                 train_glove(self, job, step_size, error)
+                print error
                 with lock:
                     total_error[0] += error[0]
                     total_done[0] += len(job[0])
