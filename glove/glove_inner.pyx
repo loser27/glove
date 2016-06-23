@@ -35,10 +35,8 @@ cdef void train_glove_thread(
         for b in range(vector_size):
             diff += W[b + l1] * ContextW[b + l2] # dot product of word and context word vector
         diff += bias[job_key[example_idx]] + ContextB[job_subkey[example_idx]] - log(job_target[example_idx]) # add separate bias for each word
-        fdiff = (job_target_implicit[example_idx]*diff) if (job_target[example_idx] > x_max) else pow((job_target[example_idx]*job_target[example_idx]) / x_max, alpha) * diff # multiply weighting function (f) with diff
-        print fdiff
+        fdiff = (job_target_implicit[example_idx] * diff) if (job_target[example_idx] > x_max) else pow((job_target_implicit[example_idx] * job_target[example_idx]) / x_max, alpha) * diff # multiply weighting function (f) with diff
         error[0] += 0.5 * fdiff * diff # weighted squared error
-        print error[0]
 
         # # Adaptive gradient updates
         fdiff *= step_size # for ease in calculating gradient
