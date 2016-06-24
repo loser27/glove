@@ -75,6 +75,8 @@ class Glove(object):
                 val = 1
                 if flag:
                     val = self.cooccurence_implicit[key][subkey]
+                if val > 200:
+                    val = 200
         
                 batch.append((key, subkey, self.cooccurence[key][subkey], val))
                 batch_length += 1
