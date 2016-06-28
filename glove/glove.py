@@ -8,7 +8,7 @@ pyximport.install(setup_args={"include_dirs": np.get_include()})
 from .glove_inner import train_glove
 
 class Glove(object):
-    def __init__(self, cooccurence,cooccurence_implicit, alpha=0.75, x_max=100.0, d=50, seed=1234):
+    def __init__(self, cooccurence,cooccurence_implicit, alpha=0.75, x_max=100.0, d=50, seed=1234, val_max=500):
         """
         Glove model for obtaining dense embeddings from a
         co-occurence (sparse) matrix.
@@ -75,8 +75,8 @@ class Glove(object):
                 val = 1
                 if flag:
                     val = self.cooccurence_implicit[key][subkey]
-                if val > 96:
-                    val = 96
+                if val > val_max:
+                    val = val_max
         
                 batch.append((key, subkey, self.cooccurence[key][subkey], val))
                 batch_length += 1
