@@ -15,6 +15,7 @@ class Glove(object):
         """
         self.alpha           = alpha
         self.x_max           = x_max
+        self.val_max         = val_max
         self.d               = d
         self.cooccurence     = cooccurence
         self.cooccurence_implicit = cooccurence_implicit
